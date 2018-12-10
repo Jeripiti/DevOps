@@ -7,7 +7,7 @@ pipeline {
         stages {
             stage('Package the code'){
                 steps{
-                   sh 'mvn package'
+                   sh '/apache-maven-3.6.0/bin/mvn package'
                 }
             }
             stage('Deploy'){
