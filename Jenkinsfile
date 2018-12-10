@@ -9,9 +9,9 @@ pipeline {
          pollSCM('* * * * *') // Polling Source Control
      }
         stage('Package the code'){
-                sh 'mvn package'
+                step(sh 'mvn package')
         }
         stage('Deploy'){
-                sh 'scp target/*.war 13.127.151.83:/root/apache-tomcat-8.5.35/webapps'
+                step(sh 'scp target/*.war 13.127.151.83:/root/apache-tomcat-8.5.35/webapps')
         }
 }
