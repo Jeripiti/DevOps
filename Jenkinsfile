@@ -16,7 +16,7 @@ pipeline {
 		    sh 'docker build . -t ziyanakthar/sdwebapps:latest'
 		    sh 'docker login -u ziyanakthar -p Nasiranaaz'
 		    sh 'docker push ziyanakthar/sdwebapps:latest'
-                    sh 'ssh 35.154.25.74'
+                    sh 'ssh root@35.154.25.74'
                 }
             }
         }
