@@ -12,7 +12,7 @@ pipeline {
             }
             stage('Deploy'){
                 steps{
-                    sh 'scp target/*.war 13.127.151.83:/root/apache-tomcat-8.5.35/webapps'
+                    sh 'scp target/*.war 35.154.25.74:/root/apache-tomcat-8.5.35/webapps'
                 }
             }
         }
