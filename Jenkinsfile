@@ -15,7 +15,7 @@ pipeline {
                     sh 'scp target/Dockerfile 35.154.25.74:/root'
 		    sh 'docker build . -t ziyanakthar/sdwebapps:latest'
 		    sh 'docker login -u ziyanakthar -p Nasiranaaz'
-		    sh 'docker push ziyanakthar/sdbwebapps:latest'
+		    sh 'docker push ziyanakthar/sdwebapps:latest'
                     sh 'ssh 35.154.25.74'
                 }
             }
