@@ -1,8 +1,8 @@
 pipeline {
     agent any
 
-	remote.user=root
-	remote.password=1234	
+        remote.user=root
+        remote.password=1234
 
     parameters {
          string(name: 'tomcat_dev', defaultValue: '13.233.106.236', description: 'Staging Server')
@@ -11,11 +11,15 @@ pipeline {
             stage('Package the code'){
                 steps{
                    sh '/usr/bin/mvn package'
-                }
-            }
-            stage('Deploy'){
+                }       
+            }   
+            stage ('Deploy') {
                 steps{
-			sshCommand remote: 13.233.106.236, command: 'top'
+                   sshagent(credentials : ['1234']) {
+                        sh 'ssh -o StrictHostKeyChecking=no root@13.233.106.236 uptime'
+                        sh 'ssh -v root@13.233.106.236'
+                        sh 'uptime'
+                   }
                 }
             }
         }
