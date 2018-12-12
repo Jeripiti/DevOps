@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+	remote.user=root
+	remote.password=1234	
+
     parameters {
          string(name: 'tomcat_dev', defaultValue: '35.154.25.74', description: 'Staging Server')
        }
@@ -12,11 +15,7 @@ pipeline {
             }
             stage('Deploy'){
                 steps{
-                    sh 'scp target/Dockerfile 35.154.25.74:/root'
-		    sh 'docker build . -t ziyanakthar/sdwebapps:latest'
-		    sh 'docker login -u ziyanakthar -p Nasiranaaz'
-		    sh 'docker push ziyanakthar/sdwebapps:latest'
-                    sh 'ssh root@35.154.25.74'
+			sshCommand remote: 13.233.106.236, command: 'top'
                 }
             }
         }
