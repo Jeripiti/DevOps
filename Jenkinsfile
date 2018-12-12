@@ -16,7 +16,7 @@ pipeline {
             stage ('Deploy') {
                 steps{
                    sshagent(credentials : ['1234']) {
-                        sh 'ssh -o StrictHostKeyChecking=no root@13.233.106.236 docker run -itd --name container-22 -p 8081:8081 ziyanakthar/newimage:tomcat7'
+                        sh 'ssh -o StrictHostKeyChecking=no root@13.233.106.236 docker run -itd --name container-spin ziyanakthar/newimage:tomcat7'
                         sh 'uptime'
                    }
                 }
