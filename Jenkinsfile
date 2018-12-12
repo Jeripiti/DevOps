@@ -8,16 +8,15 @@ pipeline {
             stage('Package the code'){
                 steps{
                    sh '/usr/bin/mvn package'
-		   sh 'docker build . -t newimage:tomcat'
+		   sh 'docker build . -t ziyanakthar/newimage:tomcat7'
 		   sh 'docker login -u ziyanakthar -p Nasiranaaz'
-		   sh 'docker push -t newimage:tomcat'
+		   sh 'docker push ziyanakthar/newimage:tomcat7'
                 }       
             }   
             stage ('Deploy') {
                 steps{
                    sshagent(credentials : ['1234']) {
-                        sh 'ssh -o StrictHostKeyChecking=no root@13.233.106.236 docker run -itd --name container-2 -p 8081:8081 ziyanakthar/newimage:tomcat'
-                        sh 'ssh -v root@13.233.106.236'
+                        sh 'ssh -o StrictHostKeyChecking=no root@13.233.106.236 docker run -itd --name container-22 -p 8081:8081 ziyanakthar/newimage:tomcat7'
                         sh 'uptime'
                    }
                 }
