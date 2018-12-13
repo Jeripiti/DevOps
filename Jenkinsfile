@@ -16,7 +16,7 @@ pipeline {
             stage ('Deploy') {
                 steps{
                    sshagent(credentials : ['1234']) {
-                        sh 'ssh -o StrictHostKeyChecking=no root@13.232.84.226 docker run -itd --name container-spinning ziyanakthar/spinning:tominst'
+                        sh 'ssh -o StrictHostKeyChecking=no root@13.232.84.226 docker run -itd --name container-spinning -p 8080:8080 ziyanakthar/spinning:tominst'
                         sh 'uptime'
                    }
                 }
