@@ -16,7 +16,7 @@ pipeline {
             stage ('Deploy') {
                 steps{
                    sshagent(credentials : ['1234']) {
-                        sh 'ssh -o StrictHostKeyChecking=no 3.16.155.104 docker run -itd --name container-spinning -p 8080:8080 ziyanakthar/spinning-dec:tominst'
+                        sh 'ssh -o StrictHostKeyChecking=no sudo jenkins@3.16.155.104 docker run -itd --name container-spinning -p 8080:8080 ziyanakthar/spinning-dec:tominst'
                         sh 'uptime'
                    }
                 }
