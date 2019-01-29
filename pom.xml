@@ -202,7 +202,7 @@
 		<repository>
 			<id>releases</id>
 			<name>Releases</name>
-			<url>http://54.82.39.71:8088/nexus/content/repositories/releases</url>
+			<url>http://3.83.104.57:8088/nexus/content/repositories/releases</url>
 		</repository>
 		
 	
